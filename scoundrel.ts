@@ -15,6 +15,21 @@ class Card {
         this.suit = suit
         this.value = value
     }
+
+    stringify(){
+        switch(this.value){
+            case 1:
+                return `Ace of ${this.suit}`
+            case 11:
+                return `Jack of ${this.suit}`
+            case 12:
+                return `Queen of ${this.suit}`
+            case 13:
+                return `King of ${this.suit}`
+            default:
+                return `${this.value} of ${this.suit}`
+        }
+    }
 }
 
 class Deck {
@@ -56,7 +71,7 @@ class Deck {
     cheat() {
         let counter = 1
         this.deck.forEach((seenCard) => {
-            console.log(`${counter}: ${seenCard.value} of ${seenCard.suit}`)
+            console.log(`${counter}: ${seenCard.stringify()}`)
             counter++
         })
     }
